@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Layout } from "../components/Layout/layout";
 import Map, {
   FullscreenControl,
   GeolocateControl,
@@ -22,29 +23,31 @@ const MapGL = ({ mapGlToken }) => {
   };
 
   return (
-    <div>
-      <MapButtons handleBtnClick={handleBtnClick} />
-      <Map
-        {...viewport}
-        onMove={(e) => onMapMove(e)}
-        style={{ width: "100vw", height: "95vh" }}
-        mapStyle={style}
-        mapboxAccessToken={mapGlToken}
-      >
-        <FullscreenControl />
-        <GeolocateControl position="top-left" />
-        <NavigationControl visualizePitch={false} />
-        <ScaleControl />
-        <Marker
-          longitude={viewport.longitude}
-          latitude={viewport.latitude}
-          anchor="bottom"
-          draggable
+    <Layout>
+      <div>
+        <MapButtons handleBtnClick={handleBtnClick} />
+        <Map
+          {...viewport}
+          onMove={(e) => onMapMove(e)}
+          style={{ width: "100vw", height: "95vh" }}
+          mapStyle={style}
+          mapboxAccessToken={mapGlToken}
         >
-          <img src="./map-marker.svg" />
-        </Marker>
-      </Map>
-    </div>
+          <FullscreenControl />
+          <GeolocateControl position="top-left" />
+          <NavigationControl visualizePitch={false} />
+          <ScaleControl />
+          <Marker
+            longitude={viewport.longitude}
+            latitude={viewport.latitude}
+            anchor="bottom"
+            draggable
+          >
+            <img src="./map-marker.svg" />
+          </Marker>
+        </Map>
+      </div>
+    </Layout>
   );
 };
 
