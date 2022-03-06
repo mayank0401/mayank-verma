@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+.siteLayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url("../../public/bg-4.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* Chrome 10-25, Safari 5.1-6 */
+  /* background: -webkit-linear-gradient(
+    to bottom,
+    #030b4b,
+    #3688a9,
+    #030b4b
+  );  */
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* background: linear-gradient(
+    to bottom,
+    #030b4b,
+    #3688a9,
+    #030b4b
+  );  */
+}
+
+.container {
+  margin-top: 64px;
+  position: relative;
+  width: calc(100% - 100px);
+  min-height: calc(100vh - 180px);
+  /* min-height: 300px; */
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(25px);
+  background-clip: padding-box;
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+
+.pageContent {
+  position: relative;
+}
+
+@-moz-document url-prefix() {
+  .container {
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
