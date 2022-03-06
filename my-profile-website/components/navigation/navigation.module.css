@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+.navHeader {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 5px 5%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  /* background-color: #24252a; */
+}
+
+@-moz-document url-prefix() {
+  .navHeader {
+    background: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.navHeader img {
+  margin-right: auto;
+  max-height: 64px;
+}
+
+.navLinks {
+  list-style: none;
+}
+
+.navLinks li {
+  margin-right: 1.5rem;
+  display: inline-block;
+  position: relative;
+}
+
+.navLinks li a {
+  transition: all 250ms ease-in-out;
+  text-transform: uppercase;
+}
+
+.navLinks a:hover {
+  color: rgba(0, 136, 169, 0.8);
+}
+
+.navLinks a::before {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: rgba(0, 136, 169, 0.8);
+  position: absolute;
+  bottom: -5px;
+  width: 0%;
+  transition: all 250ms ease-in-out;
+}
+
+.navLinks a:hover::before {
+  width: 100%;
+}
+
+.navHeader button {
+  padding: 9px 25px;
+  background-color: rgba(0, 136, 169, 1);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.navHeader button:hover {
+  background-color: rgba(0, 136, 169, 0.8);
+}

@@ -7,6 +7,8 @@ import Map, {
   ScaleControl,
 } from "react-map-gl";
 import { MapButtons } from "../components/mapComponents/map-buttons";
+import { Navigation } from "../components/navigation/nav-menu";
+import styles from "../styles/Map.module.css";
 
 const MapGL = ({ mapGlToken }) => {
   const [viewport, setViewport] = useState({
@@ -22,29 +24,31 @@ const MapGL = ({ mapGlToken }) => {
   };
 
   return (
-    <div>
-      <MapButtons handleBtnClick={handleBtnClick} />
-      <Map
-        {...viewport}
-        onMove={(e) => onMapMove(e)}
-        style={{ width: "100vw", height: "95vh" }}
-        mapStyle={style}
-        mapboxAccessToken={mapGlToken}
-      >
-        <FullscreenControl />
-        <GeolocateControl position="top-left" />
-        <NavigationControl visualizePitch={false} />
-        <ScaleControl />
-        <Marker
-          longitude={viewport.longitude}
-          latitude={viewport.latitude}
-          anchor="bottom"
-          draggable
+    <Navigation>
+      <div className={styles.container}>
+        <MapButtons handleBtnClick={handleBtnClick} />
+        <Map
+          {...viewport}
+          onMove={(e) => onMapMove(e)}
+          style={{ width: "100%", height: "88.5vh" }}
+          mapStyle={style}
+          mapboxAccessToken={mapGlToken}
         >
-          <img src="./map-marker.svg" />
-        </Marker>
-      </Map>
-    </div>
+          <FullscreenControl />
+          <GeolocateControl position="top-left" />
+          <NavigationControl visualizePitch={false} />
+          <ScaleControl />
+          <Marker
+            longitude={viewport.longitude}
+            latitude={viewport.latitude}
+            anchor="bottom"
+            draggable
+          >
+            <img src="./map-marker.svg" />
+          </Marker>
+        </Map>
+      </div>
+    </Navigation>
   );
 };
 
